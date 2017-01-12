@@ -1,0 +1,6 @@
+############################
+# FICHEROS IGNORADOS POR GIT
+############################
+/bin/
+/.classpath
+/.project
