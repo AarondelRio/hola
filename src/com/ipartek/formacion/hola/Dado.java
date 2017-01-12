@@ -2,7 +2,7 @@ package com.ipartek.formacion.hola;
 
 public class Dado {
 
-	static String[] aAlumnos = { "Aaron", "Eneko", "Itsaso", "Ivan", "Guillermo", "lozoya", "Josu", "Ignacio", "Gomez",
+	static String[] aAlumnos = { "Aarón", "Eneko", "Itsaso", "Ivan", "Guillermo", "lozoya", "Josu", "Ignacio", "Gomez",
 			"Nerea", "Nagore", "Garbiñe", "Egoitz", "Pavel", "Perez" };
 
 	public static void listar() {
