@@ -1,6 +1,6 @@
 package com.ipartek.formacion.hola;
 
-import com.ipartek.formacion.hola.pojo.Libro;
+import com.ipartek.formacion.hola.pojo.LibroNoEncapsulado;
 
 /**
  * Comentario de java doc Clase para realizar un 'Hello World'
@@ -44,7 +44,7 @@ public class Hola {
 		System.out.println("Hola Mundo");
 
 		// Instanciar un objeto de la clase libro
-		Libro libroJava = new Libro();
+		LibroNoEncapsulado libroJava = new LibroNoEncapsulado();
 		libroJava.numeroPaginas = 320;
 		libroJava.nombre = "Java 7";
 		libroJava.autor = "autor java";
@@ -55,7 +55,7 @@ public class Hola {
 
 		System.out.println(libroJava.describete());
 
-		Libro libroPhp = new Libro();
+		LibroNoEncapsulado libroPhp = new LibroNoEncapsulado();
 		libroPhp.numeroPaginas = 700;
 		libroPhp.nombre = "Php";
 		libroPhp.autor = "autor php";
