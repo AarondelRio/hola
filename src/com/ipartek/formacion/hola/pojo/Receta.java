@@ -8,13 +8,13 @@ import java.util.Arrays;
  *
  */
 public class Receta {
-	String titulo;
-	String dificultad;
-	String descripcion;
-	int comensales;
-	int tiempo;
-	Ingrediente[] ingredientes;
-	boolean tieneGlutenReceta;
+	private String titulo;
+	private String dificultad;
+	private String descripcion;
+	private int comensales;
+	private int tiempo;
+	private Ingrediente[] ingredientes;
+	private boolean tieneGlutenReceta;
 
 	/**
 	 * CONSTRUCTOR
@@ -123,12 +123,9 @@ public class Receta {
 				+ descripcion + "\n Tiene Gluten=" + tieneGlutenReceta + ".";
 	}
 
-	/**
-	 * 
-	 */
 	public void tieneGluten() {
-		for (Ingrediente ingrediente : ingredientes) {
-			if (ingrediente.tieneGluten) {
+		for (Ingrediente ingrediente : this.ingredientes) {
+			if (ingrediente.isTieneGluten()) {
 				this.tieneGlutenReceta = true;
 			}
 		}

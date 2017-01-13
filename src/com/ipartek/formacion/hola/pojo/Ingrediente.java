@@ -6,9 +6,9 @@ package com.ipartek.formacion.hola.pojo;
  *
  */
 public class Ingrediente {
-	int cantidad;
-	String nombre;
-	boolean tieneGluten;
+	private int cantidad;
+	private String nombre;
+	private boolean tieneGluten;
 
 	/**
 	 * CONSTRUCTOR

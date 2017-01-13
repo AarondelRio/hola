@@ -34,12 +34,12 @@ public class LibroTest {
 
 	@Test
 	public void testConstructorConParametros() {
-		Libro l = new Libro("java7", 324);
+		Libro l = new Libro("java7", null, 324);
 		assertEquals(324, l.getNumeroPaginas());
 		assertEquals("java7", l.getTitulo());
 		assertEquals("anonimo", l.getAutor());
 
-		l = new Libro("java7", -1);
+		l = new Libro("java7", null, -1);
 		assertEquals(0, l.getNumeroPaginas());
 		assertEquals("java7", l.getTitulo());
 		assertEquals("anonimo", l.getAutor());
