@@ -3,6 +3,9 @@ package com.ipartek.formacion.hola.pojo;
 import java.util.ArrayList;
 
 public class Receta {
+	public String IMG_DEFAULT = "http://apps.enyojs.com/assets/apps/17daydietmealplan_icon.png";
+
+	private String imagen;
 	private String titulo;
 	private String dificultad;
 	private String descripcion;
@@ -12,6 +15,17 @@ public class Receta {
 
 	public Receta() {
 		super();
+	}
+
+	public Receta(String titulo) {
+		super();
+		this.titulo = titulo;
+		this.imagen = IMG_DEFAULT;
+		setIngredientes(null);
+		this.tiempo = 0;
+		this.comensales = 0;
+		this.dificultad = "facil";
+		this.descripcion = "Lorem ipsum....";
 	}
 
 	public Receta(String titulo, ArrayList<Ingrediente> ingredientes) {
@@ -25,8 +39,11 @@ public class Receta {
 		this.descripcion = "Lorem ipsum....";
 	}
 
-	public void addIngrendiente(Ingrediente ingrediente) {
-		this.ingredientes.add(ingrediente);
+	public void addIngrediente(Ingrediente ingrediente) {
+		if (ingrediente != null) {
+			this.ingredientes.add(ingrediente);
+		}
+
 	}
 
 	public boolean removeIngrediente(Ingrediente ingrediente) {
@@ -124,10 +141,19 @@ public class Receta {
 		this.ingredientes = (ingredientes == null) ? new ArrayList<Ingrediente>() : ingredientes;
 	}
 
+	public String getImagen() {
+		return imagen;
+	}
+
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
+	}
+
 	@Override
 	public String toString() {
-		return "Receta [titulo=" + titulo + ", dificultad=" + dificultad + ", descripcion=" + descripcion
-				+ ", comensales=" + comensales + ", tiempo=" + tiempo + ", ingredientes=" + ingredientes + "]";
+		return "Receta [imagen=" + imagen + ", titulo=" + titulo + ", dificultad=" + dificultad + ", descripcion="
+				+ descripcion + ", comensales=" + comensales + ", tiempo=" + tiempo + ", ingredientes=" + ingredientes
+				+ "]";
 	}
 
 }

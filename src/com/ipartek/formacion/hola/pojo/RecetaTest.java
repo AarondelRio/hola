@@ -32,9 +32,9 @@ public class RecetaTest {
 	@Before
 	public void setUp() throws Exception {
 		tortillaPatatas = new Receta("tortilla de patatas", null);
-		tortillaPatatas.addIngrendiente(huevos);
-		tortillaPatatas.addIngrendiente(cebolla);
-		tortillaPatatas.addIngrendiente(patatas);
+		tortillaPatatas.addIngrediente(huevos);
+		tortillaPatatas.addIngrediente(cebolla);
+		tortillaPatatas.addIngrediente(patatas);
 	}
 
 	@After
@@ -48,11 +48,11 @@ public class RecetaTest {
 		int numero = r.getIngredientes().size();
 		assertEquals("No deben existir ingredientes", 0, numero);
 
-		r.addIngrendiente(null);
+		r.addIngrediente(null);
 		numero = r.getIngredientes().size();
 		assertEquals("No deben existir ingredientes", 0, numero);
 
-		r.addIngrendiente(new Ingrediente("", 0, true));
+		r.addIngrediente(new Ingrediente("", 0, true));
 		numero = r.getIngredientes().size();
 		assertEquals(1, numero);
 	}
@@ -63,7 +63,7 @@ public class RecetaTest {
 		Receta r = new Receta("Tortilla patatas", null);
 		assertFalse(r.removeIngrediente(null));
 
-		tortillaPatatas.addIngrendiente(huevos);
+		tortillaPatatas.addIngrediente(huevos);
 
 		huevos.setNombre("HueVos");
 		tortillaPatatas.removeIngrediente(huevos);
@@ -71,7 +71,6 @@ public class RecetaTest {
 		ArrayList<Ingrediente> ingredientes = tortillaPatatas.getIngredientes();
 		assertEquals(3, ingredientes.size());
 
-		// TODO comprobar que sean huevo, cebolla y patatas
 		assertFalse(tortillaPatatas.contiene(null));
 		assertFalse(tortillaPatatas.contiene(new Ingrediente("Salmonela", 2, true)));
 		assertTrue(tortillaPatatas.contiene(huevos));
