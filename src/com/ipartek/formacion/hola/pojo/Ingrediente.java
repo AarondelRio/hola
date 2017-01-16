@@ -1,50 +1,16 @@
 package com.ipartek.formacion.hola.pojo;
 
-/**
- * 
- * @author Curso
- *
- */
 public class Ingrediente {
-	private int cantidad;
+
 	private String nombre;
-	private boolean tieneGluten;
+	private float cantidad;
+	private boolean gluten;
 
-	/**
-	 * CONSTRUCTOR
-	 */
-	public Ingrediente() {
+	public Ingrediente(String nombre, float cantidad, boolean gluten) {
 		super();
-	}
-
-	/**
-	 * CONSTRUCTOR CON PARAMETROS
-	 * 
-	 * @param cantidad:
-	 *            Numero de ingredientes
-	 * @param nombre:
-	 *            Nombre de ingrediente
-	 * @param tieneGluten:
-	 *            Si el ingrediente tiene Gluten es Positivo
-	 */
-	public Ingrediente(int cantidad, String nombre, boolean tieneGluten) {
-		super();
-		this.cantidad = cantidad;
 		this.nombre = nombre;
-		this.tieneGluten = tieneGluten;
-	}
-
-	/**
-	 * GETTERS&SETTERS
-	 * 
-	 * @return
-	 */
-	public int getCantidad() {
-		return cantidad;
-	}
-
-	public void setCantidad(int cantidad) {
 		this.cantidad = cantidad;
+		this.gluten = gluten;
 	}
 
 	public String getNombre() {
@@ -55,20 +21,25 @@ public class Ingrediente {
 		this.nombre = nombre;
 	}
 
-	public boolean isTieneGluten() {
-		return tieneGluten;
+	public float getCantidad() {
+		return cantidad;
 	}
 
-	public void setTieneGluten(boolean tieneGluten) {
-		this.tieneGluten = tieneGluten;
+	public void setCantidad(float cantidad) {
+		this.cantidad = cantidad;
 	}
 
-	/**
-	 * TO STRING
-	 */
+	public boolean isGluten() {
+		return gluten;
+	}
+
+	public void setGluten(boolean gluten) {
+		this.gluten = gluten;
+	}
+
 	@Override
 	public String toString() {
-		return "\n" + cantidad + nombre + ", tieneGluten=" + tieneGluten + "";
+		return "Ingrediente [nombre=" + nombre + ", cantidad=" + cantidad + ", gluten=" + gluten + "]";
 	}
 
 }

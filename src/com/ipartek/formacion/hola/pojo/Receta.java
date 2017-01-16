@@ -1,62 +1,81 @@
 package com.ipartek.formacion.hola.pojo;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 
-/**
- * 
- * @author Curso
- *
- */
 public class Receta {
 	private String titulo;
 	private String dificultad;
 	private String descripcion;
 	private int comensales;
 	private int tiempo;
-	private Ingrediente[] ingredientes;
-	private boolean tieneGlutenReceta;
+	private ArrayList<Ingrediente> ingredientes;
 
-	/**
-	 * CONSTRUCTOR
-	 */
 	public Receta() {
 		super();
 	}
 
-	/**
-	 * CONSTRUCTOR CON PARAMETROS
-	 * 
-	 * @param titulo:
-	 *            Titulo de la receta
-	 * @param dificultad:
-	 *            Dificultad de la receta
-	 * @param descripcion:
-	 *            Elaboracion de la receta
-	 * @param comensales:
-	 *            Numero de comensales
-	 * @param tiempo:
-	 *            Tiempo de elaboracion
-	 * @param ingredientes:
-	 *            Array de Ingredientes, cada celca contiene un Objeto
-	 *            Ingrediente
-	 */
-	public Receta(String titulo, String dificultad, String descripcion, int comensales, int tiempo,
-			Ingrediente[] ingredientes) {
+	public Receta(String titulo, ArrayList<Ingrediente> ingredientes) {
 		super();
 		this.titulo = titulo;
-		this.dificultad = dificultad;
-		this.descripcion = descripcion;
-		this.comensales = comensales;
-		this.tiempo = tiempo;
-		this.ingredientes = ingredientes;
-		tieneGluten();
+		// this.ingredientes = ingredientes;
+		setIngredientes(ingredientes);
+		this.tiempo = 0;
+		this.comensales = 0;
+		this.dificultad = "facil";
+		this.descripcion = "Lorem ipsum....";
 	}
 
-	/**
-	 * GETTERS&SETTERS
-	 * 
-	 * @return
-	 */
+	public void addIngrendiente(Ingrediente ingrediente) {
+		this.ingredientes.add(ingrediente);
+	}
+
+	public boolean removeIngrediente(Ingrediente ingrediente) {
+		boolean resul = false;
+		if (ingrediente != null) {
+			final String NOMBRE_INGREDIENTE_ELIMINAR = ingrediente.getNombre();
+			Ingrediente iterateIngrediente = null;
+			for (int i = 0; i < this.ingredientes.size(); i++) {
+				iterateIngrediente = this.ingredientes.get(i);
+				if (NOMBRE_INGREDIENTE_ELIMINAR.equalsIgnoreCase(iterateIngrediente.getNombre())) {
+					this.ingredientes.remove(i);
+					resul = true;
+					break;
+				}
+			}
+		}
+		return resul;
+	}
+
+	public boolean contiene(Ingrediente ingrediente) {
+		boolean resul = false;
+		if (ingrediente != null) {
+			final String NOMBRE_INGREDIENTE_BUSCAR = ingrediente.getNombre();
+			Ingrediente iterateIngrediente = null;
+			for (int i = 0; i < this.ingredientes.size(); i++) {
+				iterateIngrediente = this.ingredientes.get(i);
+				if (NOMBRE_INGREDIENTE_BUSCAR.equalsIgnoreCase(iterateIngrediente.getNombre())) {
+					resul = true;
+					break;
+				}
+			}
+
+		}
+		return resul;
+	}
+
+	public boolean isGlutenFree() {
+		boolean resul = true;
+		if (this.ingredientes != null) {
+			for (Ingrediente i : this.ingredientes) {
+				if (i.isGluten()) {
+					resul = false;
+					break;
+				}
+			}
+		}
+		return resul;
+	}
+
 	public String getTitulo() {
 		return titulo;
 	}
@@ -97,38 +116,18 @@ public class Receta {
 		this.tiempo = tiempo;
 	}
 
-	public Ingrediente[] getIngredientes() {
+	public ArrayList<Ingrediente> getIngredientes() {
 		return ingredientes;
 	}
 
-	public void setIngredientes(Ingrediente[] ingredientes) {
-		this.ingredientes = ingredientes;
+	public void setIngredientes(ArrayList<Ingrediente> ingredientes) {
+		this.ingredientes = (ingredientes == null) ? new ArrayList<Ingrediente>() : ingredientes;
 	}
 
-	public boolean isTieneGlutenReceta() {
-		return tieneGlutenReceta;
-	}
-
-	public void setTieneGlutenReceta(boolean tieneGlutenReceta) {
-		this.tieneGlutenReceta = tieneGlutenReceta;
-	}
-
-	/**
-	 * TO STRING
-	 */
 	@Override
 	public String toString() {
-		return "Receta : titulo=" + titulo + ",\n Ingredientes =" + Arrays.toString(ingredientes) + ",\n tiempo="
-				+ tiempo + ",\n dificultad=" + dificultad + ",\n comensales=" + comensales + ",\n descripcion="
-				+ descripcion + "\n Tiene Gluten=" + tieneGlutenReceta + ".";
-	}
-
-	public void tieneGluten() {
-		for (Ingrediente ingrediente : this.ingredientes) {
-			if (ingrediente.isTieneGluten()) {
-				this.tieneGlutenReceta = true;
-			}
-		}
+		return "Receta [titulo=" + titulo + ", dificultad=" + dificultad + ", descripcion=" + descripcion
+				+ ", comensales=" + comensales + ", tiempo=" + tiempo + ", ingredientes=" + ingredientes + "]";
 	}
 
 }
