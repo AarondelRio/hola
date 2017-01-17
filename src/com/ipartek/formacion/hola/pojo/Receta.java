@@ -26,6 +26,7 @@ public class Receta {
 		this.comensales = 0;
 		this.dificultad = "facil";
 		this.descripcion = "Lorem ipsum....";
+		
 	}
 
 	public Receta(String titulo, ArrayList<Ingrediente> ingredientes) {
