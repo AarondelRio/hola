@@ -1,5 +1,7 @@
 package com.ipartek.formacion.receta.ejercicios.herencia;
 
+import java.util.ArrayList;
+
 public class EjercicioConcesionario {
 
 	public static void main(String[] args) {
@@ -43,6 +45,29 @@ public class EjercicioConcesionario {
 		astra.setCapacidadCombustible(98);
 		System.out.println(astra.toString());
 
+		ArrayList<Vehiculo> stock = new ArrayList<Vehiculo>();
+		stock.add(prius);
+		stock.add(ibiza);
+		stock.add(fiesta);
+		stock.add(tesla);
+		stock.add(xsara);
+		stock.add(astra);
+
+		for (Vehiculo vehiculo : stock) {
+			System.out.println("-----------------------");
+			System.out.println("Modelo: " + vehiculo.getModelo());
+			System.out.println("Plazas: " + vehiculo.getPlazas());
+			System.out.println("Potencia: " + vehiculo.getPotencia());
+
+			if (vehiculo instanceof VehiculoElectrico) {
+				System.out.println("Capacidad Bateria: " + ((VehiculoElectrico) vehiculo).getCapacidadBateria());
+
+			} else if (vehiculo instanceof VehiculoDiesel) {
+				System.out.println("Capacidad Combustible: " + ((VehiculoDiesel) vehiculo).getCapacidadCombustible());
+
+			}
+
+		}
 	}
 
 }

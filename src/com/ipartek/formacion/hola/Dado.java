@@ -2,6 +2,11 @@ package com.ipartek.formacion.hola;
 
 public class Dado {
 
+	// final : no modificable
+	// static : solo una en memoria
+	final static int NUM_MAX_ALUMNOS = 15;
+	static String alumnoAfortunado;
+
 	static String[] aAlumnos = { "Aarón", "Eneko", "Itsaso", "Ivan", "Guillermo", "lozoya", "Josu", "Ignacio", "Gomez",
 			"Nerea", "Nagore", "Garbiñe", "Egoitz", "Pavel", "Perez" };
 

@@ -1,6 +1,6 @@
 package com.ipartek.formacion.receta.ejercicios.herencia;
 
-public class Vehiculo {
+public class Vehiculo implements Conducible {
 	private String modelo;
 	private int plazas;
 	private float dimensiones;
@@ -17,6 +17,25 @@ public class Vehiculo {
 	public Vehiculo(String modelo) {
 		this();
 		this.modelo = modelo;
+
+	}
+
+	/**
+	 * Al ser un metodo final no puede ser sobrescrito por los hijos
+	 */
+	@Override
+	final public void detener() {
+		System.out.println("Detener Vehiculo");
+	}
+
+	@Override
+	public void arrancar() {
+		System.out.println("Arrancado vehiculo");
+	}
+
+	@Override
+	public void girar(String direccion) {
+		System.out.println("gira a " + direccion);
 
 	}
 
