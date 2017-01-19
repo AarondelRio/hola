@@ -2,8 +2,11 @@ package com.ipartek.formacion.hola.pojo;
 
 import java.util.ArrayList;
 
-public class Receta {
+public class Receta implements Comparable<Receta> {
 	public String IMG_DEFAULT = "http://apps.enyojs.com/assets/apps/17daydietmealplan_icon.png";
+	public static final String FACIL = "facil";
+	public static final String MODERADA = "moderada";
+	public static final String DIFICIL = "dificil";
 
 	private String imagen;
 	private String titulo;
@@ -26,7 +29,7 @@ public class Receta {
 		this.comensales = 0;
 		this.dificultad = "facil";
 		this.descripcion = "Lorem ipsum....";
-		
+
 	}
 
 	public Receta(String titulo, ArrayList<Ingrediente> ingredientes) {
@@ -155,6 +158,12 @@ public class Receta {
 		return "Receta [imagen=" + imagen + ", titulo=" + titulo + ", dificultad=" + dificultad + ", descripcion="
 				+ descripcion + ", comensales=" + comensales + ", tiempo=" + tiempo + ", ingredientes=" + ingredientes
 				+ "]";
+	}
+
+	// COMPARABLE
+	@Override
+	public int compareTo(Receta o) {
+		return this.getTitulo().toLowerCase().compareTo(o.getTitulo().toLowerCase());
 	}
 
 }

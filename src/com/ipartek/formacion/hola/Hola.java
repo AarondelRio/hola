@@ -1,5 +1,7 @@
 package com.ipartek.formacion.hola;
 
+import java.util.Arrays;
+
 import com.ipartek.formacion.hola.pojo.LibroNoEncapsulado;
 
 /**
@@ -65,5 +67,20 @@ public class Hola {
 		libroPhp.escribir(20);
 		System.out.println(libroPhp.describete());
 
+		/*
+		 * test ordenar Ascendente y descendente
+		 * 
+		 * solomillo. moderado marmitako. dificil toritlla de patata. facil
+		 * 
+		 * 
+		 * ordenar alfabeticamente por nombre ordenar de facil a dificil
+		 */
+		int[] disorder = { 2, 3, 5, 6, 8, 9, 7, 4, 1, 0 };
+		Arrays.sort(disorder);
+		// int[] order = Utilidades.bubbleSort(disorder);
+
+		for (int i : disorder) {
+			System.out.println(i);
+		}
 	}
 }
